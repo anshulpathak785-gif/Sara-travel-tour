@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SARA CAB SERVICE | Premium Cab & Tempo Traveller Rental in Bangalore</title>
+  <meta name="description" content="Luxury cab & tempo traveller rental in Bangalore. Airport transfers, corporate travel, outstation trips. Premium vehicles, trusted service."/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-black:#05060a;
+      --bg-navy:#0a0f2c;
+      --glass:rgba(255,255,255,0.08);
+      --border:rgba(255,255,255,0.15);
+      --purple:#7b6cff;
+      --blue:#1b2cff;
+      --text-main:#ffffff;
+      --text-muted:#b9bdd6;
+      --radius:18px;
+      --blur:18px;
+      --shadow-soft:0 30px 60px rgba(0,0,0,0.6);
+      --shadow-glow:0 0 40px rgba(123,108,255,0.25);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Inter',sans-serif;
+      background:
+        radial-gradient(1200px 600px at 80% -10%,rgba(123,108,255,0.15),transparent),
+        linear-gradient(180deg,var(--bg-navy),var(--bg-black));
+      color:var(--text-main);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+
+    /* ---------- Utility ---------- */
+    .container{width:100%;max-width:1200px;margin:auto;padding:0 20px}
+    .glass{
+      background:var(--glass);
+      backdrop-filter:blur(var(--blur));
+      -webkit-backdrop-filter:blur(var(--blur));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-soft);
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 26px;
+      border-radius:999px;
+      font-weight:600;
+      background:linear-gradient(135deg,var(--purple),var(--blue));
+      box-shadow:var(--shadow-glow);
+      transition:.3s ease;
+      border:none;
+      cursor:pointer;
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:0 0 60px rgba(123,108,255,0.4)}
+
+    /* ---------- Header ---------- */
+    header{
+      position:fixed;
+      top:0;left:0;width:100%;
+      z-index:50;
+      background:rgba(5,6,10,0.7);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      height:70px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .logo{
+      font-weight:700;
+      letter-spacing:0.5px;
+    }
+    .logo span{color:var(--purple)}
+
+    /* ---------- Hero ---------- */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding-top:90px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+    .hero h1{
+      font-size:clamp(34px,5vw,58px);
+      line-height:1.1;
+      margin-bottom:20px;
+    }
+    .hero h1 span{
+      background:linear-gradient(135deg,var(--purple),#9fd3ff);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+    .hero p{
+      color:var(--text-muted);
+      font-size:18px;
+      margin-bottom:30px;
+      max-width:520px;
+    }
+    .hero-card{
+      padding:30px;
+      transform:perspective(1000px) rotateY(-6deg);
+    }
+
+    /* ---------- Vehicles ---------- */
+    section{padding:100px 0}
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+    .section-title h2{
+      font-size:38px;
+      margin-bottom:12px;
+    }
+    .section-title p{color:var(--text-muted)}
+
+    .vehicle-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+    }
+    .vehicle-card{
+      padding:20px;
+      transition:.4s ease;
+    }
+    .vehicle-card:hover{transform:translateY(-10px)}
+    .price{
+      margin-top:12px;
+      font-weight:600;
+      color:#9fd3ff;
+    }
+
+    /* ---------- Booking ---------- */
+    .booking{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:center;
+    }
+    form{
+      display:grid;
+      gap:16px;
+    }
+    input,select{
+      width:100%;
+      padding:14px 16px;
+      border-radius:12px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid var(--border);
+      color:white;
+      outline:none;
+    }
+
+    /* ---------- Why Us ---------- */
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:30px;
+    }
+    .why-card{padding:28px;text-align:center}
+
+    /* ---------- Reviews ---------- */
+    .review-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+    }
+    .stars{color:#ffd369;margin-bottom:10px}
+
+    /* ---------- Footer ---------- */
+    footer{
+      padding:60px 0;
+      border-top:1px solid var(--border);
+      text-align:center;
+      color:var(--text-muted);
+    }
+
+    /* ---------- Responsive ---------- */
+    @media(max-width:900px){
+      .hero-grid,.booking{grid-template-columns:1fr}
+      .hero-card{transform:none}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">SARA <span>CAB SERVICE</span></div>
+    <a href="#booking" class="btn">Book Now</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Premium Cab & <span>Tempo Traveller</span><br>Rental in Bangalore</h1>
+      <p>
+        Luxury airport transfers, corporate travel, and outstation journeys with
+        professionally maintained premium vehicles and experienced chauffeurs.
+      </p>
+      <a href="#booking" class="btn">Get Instant Quote</a>
+    </div>
+
+    <div class="glass hero-card">
+      <h3>Trusted by 5000+ Happy Clients</h3>
+      <p style="color:var(--text-muted);margin-top:10px">
+        On-time pickups • Clean luxury vehicles • Transparent pricing
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- VEHICLES -->
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Luxury Fleet</h2>
+      <p>Well-maintained premium vehicles for every travel need</p>
+    </div>
+
+    <div class="vehicle-grid">
+      <div class="glass vehicle-card">
+        <h4>Swift Dzire / Etios</h4>
+        <p>Comfortable sedan for city & airport travel</p>
+        <div class="price">₹14/km</div>
+      </div>
+
+      <div class="glass vehicle-card">
+        <h4>Innova Crysta</h4>
+        <p>Premium MPV for families & executives</p>
+        <div class="price">₹20/km</div>
+      </div>
+
+      <div class="glass vehicle-card">
+        <h4>Tempo Traveller</h4>
+        <p>12–17 seater luxury group travel</p>
+        <div class="price">₹28/km</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+  <div class="container booking">
+    <div>
+      <h2>Book Your Ride</h2>
+      <p style="color:var(--text-muted);margin-top:10px">
+        Share your travel details and our team will call you within minutes.
+      </p>
+    </div>
+
+    <div class="glass" style="padding:30px">
+      <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="tel" placeholder="Mobile Number" required>
+        <select>
+          <option>Select Vehicle</option>
+          <option>Sedan</option>
+          <option>Innova Crysta</option>
+          <option>Tempo Traveller</option>
+        </select>
+        <input type="text" placeholder="Pickup Location">
+        <button class="btn" type="submit">Request Callback</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>Why Choose SARA Cab Service</h2>
+    </div>
+
+    <div class="why-grid">
+      <div class="glass why-card">Professional Chauffeurs</div>
+      <div class="glass why-card">Luxury Clean Vehicles</div>
+      <div class="glass why-card">24×7 Customer Support</div>
+      <div class="glass why-card">Transparent Pricing</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>Client Reviews</h2>
+    </div>
+
+    <div class="review-grid">
+      <div class="glass">
+        <div class="stars">★★★★★</div>
+        <p>Excellent service, clean car and polite driver.</p>
+      </div>
+      <div class="glass">
+        <div class="stars">★★★★★</div>
+        <p>Best cab service in Bangalore for corporate travel.</p>
+      </div>
+      <div class="glass">
+        <div class="stars">★★★★★</div>
+        <p>Very punctual airport pickup. Highly recommended.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 SARA CAB SERVICE • Bangalore • All Rights Reserved
+</footer>
+
+</body>
+</html>
